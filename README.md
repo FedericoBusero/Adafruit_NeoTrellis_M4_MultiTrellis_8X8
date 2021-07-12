@@ -11,9 +11,8 @@ You can see the pinout at https://cdn-learn.adafruit.com/assets/assets/000/064/8
 Have look at https://www.thingiverse.com/thing:4882667 to see an example of a lasercut case.
 
 # Software library dependencies
-- Adafruit Keypad
-- Adafruit NeoPixel
-- Adafruit I2CDevice
-- Adafruit DMA neopixel library
-- Adafruit Seesaw Library
-- Adafruit BusIO library
+- Adafruit Keypad https://github.com/adafruit/Adafruit_Keypad
+- Adafruit NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
+- Adafruit DMA neopixel library https://github.com/adafruit/Adafruit_NeoPixel_ZeroDMA
+- Adafruit Seesaw Library https://github.com/adafruit/Adafruit_Seesaw
+- Adafruit BusIO library https://github.com/adafruit/Adafruit_BusIO
