@@ -94,11 +94,11 @@ bool Adafruit_M4MultiTrellis_8x8::begin(void) {
 */
 /**************************************************************************/
 void Adafruit_M4MultiTrellis_8x8::setPixelColor(uint32_t num, uint32_t color) {
-  if (pixel < M4ROWS * COLS) {
-    ledstrip.setPixelColor(pixel, color);
+  if (num < M4ROWS * COLS) {
+    ledstrip.setPixelColor(num, color);
   }
   else {
-    multitrellis.setPixelColor(pixel % COLS, (pixel / COLS) - 4, color);
+    multitrellis.setPixelColor(num % COLS, (num / COLS) - 4, color);
   }
 }
 
