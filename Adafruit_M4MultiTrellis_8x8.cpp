@@ -5,7 +5,7 @@
 
    @section intro_sec Introduction
 
-   Arduino library for the Adafruit Neotrellis M4 Mainboard with 2 trellis boards (multitrellis) in a 8x8 matrix
+   Arduino library for controlling the Adafruit Neotrellis M4 Mainboard with 2 Neotrellis boards (multitrellis) in a 8x8 matrix
 
    @section author Author
 
@@ -18,8 +18,8 @@
 
 static const byte NEO_PIN = 10;
 
-static const byte M4ROWS = 4; // four rows
-static const byte COLS = 8; // eight columns
+static const byte M4ROWS = 4; // four rows of M4 mainboard
+static const byte COLS = 8;   // eight columns
 
 // define the symbols on the buttons of the keypads
 static const byte trellisKeys[M4ROWS][COLS] = {{0, 1, 2, 3, 4, 5, 6, 7},
@@ -28,13 +28,13 @@ static const byte trellisKeys[M4ROWS][COLS] = {{0, 1, 2, 3, 4, 5, 6, 7},
   {24, 25, 26, 27, 28, 29, 30, 31}
 };
 
-static byte rowPins[M4ROWS] = {14, 15, 16, 17}; // connect to the row pinouts of the keypad
+static byte rowPins[M4ROWS] = {14, 15, 16, 17};       // connect to the row pinouts of the keypad
 static byte colPins[COLS] = {2, 3, 4, 5, 6, 7, 8, 9}; // connect to the column pinouts of the keypad
 
-static TrellisCallback (*s_cb)(keyEvent) = NULL;
+static TrellisCallback (*s_cb)(keyEvent) = NULL; // callback function
 
-#define MULTITRELLIS_Y_DIM 4 //number of rows of key on multitrellis part
-#define MULTITRELLIS_X_DIM 8 //number of columns of keys on multitrellis part
+#define MULTITRELLIS_Y_DIM 4 //number of rows of key on multitrellis NeoTrellis part
+#define MULTITRELLIS_X_DIM 8 //number of columns of keys on multitrellis NeoTrellis part
 
 static TrellisCallback onMultiTrellisEvent(keyEvent evt) {
   evt.bit.NUM += M4ROWS * COLS;
@@ -48,7 +48,7 @@ static TrellisCallback onMultiTrellisEvent(keyEvent evt) {
 /**************************************************************************/
 /*!
     @brief  class constructor
-    @param  trelli pointer to a array of 2 neotrellis objects.
+    @param  trellis_array pointer to an array of 2 neotrellis objects.
             these object must have their I2C addresses specified in the class
             constructors.
 */
@@ -61,8 +61,8 @@ Adafruit_M4MultiTrellis_8x8::Adafruit_M4MultiTrellis_8x8(Adafruit_NeoTrellis *tr
 
 /**************************************************************************/
 /*!
-    @brief  Initialize the NeoTrellis, begin communication with the matrix 
-    of neotrellis boards, start the keypad scanner and turn all neopixels off.
+    @brief  Initialize the M4 NeoTrellis mainboard, begin communication with the matrix 
+    of NeoTrellis boards, start the keypad scanner and turn all neopixels off.
 
     @returns true on success, false otherwise.
 */
@@ -76,8 +76,6 @@ bool Adafruit_M4MultiTrellis_8x8::begin(void) {
     ledstrip.setPixelColor(i, 0x00);
   }
   ledstrip.show();
-  ledstrip.setBrightness(255);
-
   return multitrellis.begin();
 }
 
@@ -104,7 +102,7 @@ void Adafruit_M4MultiTrellis_8x8::setPixelColor(uint32_t num, uint32_t color) {
 
 /**************************************************************************/
 /*!
-    @brief  set the color of a neopixel at a key index.
+    @brief  set the color of a neopixel at a position x,y
     @param  x the column index of the key. column 0 is on the lefthand side of
             the matix.
     @param  y the row index of the key. row 0 is at the top of the matrix and
@@ -127,7 +125,7 @@ void Adafruit_M4MultiTrellis_8x8::setPixelColor(int x, int y,  uint32_t color ) 
 
 /**************************************************************************/
 /*!
-    @brief  Updates all neopixels both on M4 mainboard and multitrellis
+    @brief  Updates all neopixels both on M4 mainboard and multitrellis NeoTrellis boards
 */
 /**************************************************************************/
 void Adafruit_M4MultiTrellis_8x8::show() {
@@ -138,6 +136,7 @@ void Adafruit_M4MultiTrellis_8x8::show() {
 /**************************************************************************/
 /*!
     @brief  Activate all keys and register a callback function for key events
+    @param  cb the callback function
 */
 /**************************************************************************/
 void Adafruit_M4MultiTrellis_8x8::registerCallback(TrellisCallback (*cb)(keyEvent)) {
@@ -203,6 +202,7 @@ void Adafruit_M4MultiTrellis_8x8::read(void) {
 /**************************************************************************/
 /*!
     @brief  returns the number of keys
+    @returns the number of keys, so 64 for the 8x8 matrix
 */
 /**************************************************************************/
 uint8_t Adafruit_M4MultiTrellis_8x8::num_keys(void) {
