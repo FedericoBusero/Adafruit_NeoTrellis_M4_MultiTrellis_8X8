@@ -1,5 +1,8 @@
-# Adafruit_NeoTrellis_M4_MultiTrellis_8X8
-Arduino library for controlling the Adafruit Neotrellis M4 Mainboard with 2 NeoTrellis boards (multitrellis) in a 8x8 matrix. This library solves the problem that the API of the M4 mainboard is different then multitrellis becaus the NeoTrellis boards are based on the I2C seesaw, and the M4 mainboard is not. In this libary the API is similar to multitrellis. This means following hardware is necessary:
+# Adafruit_NeoTrellis_M4_MultiTrellis_8X8 Arduino library
+Arduino library for controlling the Adafruit Neotrellis M4 Mainboard with 2 NeoTrellis boards (multitrellis) in a 8x8 matrix. This library solves the problem that the API of the M4 mainboard is different than the multitrellis API because the NeoTrellis boards are based on the I2C seesaw, and the M4 mainboard is not. In this libary the API is similar to the multitrellis API. 
+
+# Hardware
+Following hardware is necessary:
 - 1x Adafruit 3938 Neotrellis M4 Mainboard
 - 2x Adafruit 3954 Neotrellis 4x4 RGB keypad
 - 4x Adafruit 1611 Silicone Elastomer 4x4 Button keypad
