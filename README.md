@@ -8,7 +8,7 @@ Following hardware is necessary:
 - 4x Adafruit 1611 Silicone Elastomer 4x4 Button keypad
 
 # Soldering and case
-When soldering, first have a look at the pin order of the connectors: the order of the pins on the left side of the mainboard is different then the order on the right side!
+When soldering, first have a look at the pin order of the connectors: the order of the pins on the left side of the mainboard is different than the order on the right side!
 You can see the pinout [here](https://cdn-learn.adafruit.com/assets/assets/000/064/887/original/adafruit_products_fab.png?1541024062)
 
 Have look at https://www.thingiverse.com/thing:4882667 to see an example of a lasercut case.
