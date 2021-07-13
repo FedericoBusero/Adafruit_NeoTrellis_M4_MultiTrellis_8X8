@@ -16,8 +16,8 @@
 #error "This library is only for the Adafruit NeoTrellis M4!!"
 #endif
 
-/*!    @brief  NeoTrellis M4 multitrellis library that handles DMA NeoPixel, Keypad
-   scanning and multitrellis control*/
+/*!    @brief  Adafruit NeoTrellis M4 Multitrellis 8x8 library that handles DMA NeoPixel, Keypad
+   scanning and control of 2 NeoTrellis boards (multitrellis) */
 class Adafruit_M4MultiTrellis_8x8 {
 
   public:
