@@ -1,5 +1,5 @@
 /* This example shows basic usage of the M4 NeoTrellis mainboard 
-  connected to 2 Trellis boards (MultiTrellis) in a 8x8 matrix
+  connected to 2 NeoTrellis boards (MultiTrellis) in a 8x8 matrix
 
   As is this example shows use of two NeoTrellis boards
   connected together with the leftmost board having the
