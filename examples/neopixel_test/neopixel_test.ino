@@ -22,7 +22,6 @@ void setup() {
     while (1);
   }
 
-  trellis.begin();
   trellis.show(); // Initialize all pixels to 'off'
 }
 
