@@ -21,8 +21,6 @@ void setup() {
     Serial.println("failed to begin trellis");
     while (1);
   }
-
-  trellis.show(); // Initialize all pixels to 'off'
 }
 
 void loop() {
