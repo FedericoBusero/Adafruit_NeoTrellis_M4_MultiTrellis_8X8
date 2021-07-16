@@ -69,14 +69,16 @@ Adafruit_M4MultiTrellis_8x8::Adafruit_M4MultiTrellis_8x8(Adafruit_NeoTrellis *tr
 /**************************************************************************/
 bool Adafruit_M4MultiTrellis_8x8::begin(void) {
   keypad.begin();
+  ledstrip.begin();
+  if (!multitrellis.begin())
+    return false;
 
   // Initialize all pixels to 'off'
-  ledstrip.begin();
-  for (int i = 0; i < M4ROWS * COLS; i++) {
-    ledstrip.setPixelColor(i, 0x00);
+  for (int i = 0; i < (M4ROWS+MULTITRELLIS_Y_DIM) * COLS; i++) {
+    setPixelColor(i, 0x00);
   }
-  ledstrip.show();
-  return multitrellis.begin();
+  show();
+  return true;
 }
 
 
