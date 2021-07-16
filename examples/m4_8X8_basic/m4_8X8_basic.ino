@@ -64,9 +64,6 @@ void setup() {
     delay(50);
   }
 
-  //activate rising and falling edges on all keys & register callback
-  trellis.registerCallback(blink);
-
   for (int y = 0; y < Y_DIM; y++) {
     for (int x = 0; x < X_DIM; x++) {
       trellis.setPixelColor(x, y, 0x000000); //addressed with x,y
@@ -74,6 +71,9 @@ void setup() {
       delay(50);
     }
   }
+  
+  //activate rising and falling edges on all keys & register callback
+  trellis.registerCallback(blink);
 }
 
 void loop() {
