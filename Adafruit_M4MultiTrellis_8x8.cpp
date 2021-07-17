@@ -98,7 +98,7 @@ void Adafruit_M4MultiTrellis_8x8::setPixelColor(uint32_t num, uint32_t color) {
     ledstrip.setPixelColor(num, color);
   }
   else {
-    multitrellis.setPixelColor(num % COLS, (num / COLS) - 4, color);
+    multitrellis.setPixelColor(num % COLS, (num / COLS) - M4ROWS, color);
   }
 }
 
