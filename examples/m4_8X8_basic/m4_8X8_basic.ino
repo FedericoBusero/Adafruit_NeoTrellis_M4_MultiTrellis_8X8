@@ -13,7 +13,7 @@
 #define Y_DIM 8 //number of rows of keys (M4 mainboard and multitrellis included)
 
 //create a matrix of trellis panels
-Adafruit_NeoTrellis t_array[Y_DIM-4][X_DIM / 4] = {
+Adafruit_NeoTrellis t_array[(Y_DIM-4)/4][X_DIM / 4] = {
   { Adafruit_NeoTrellis(0x2E), Adafruit_NeoTrellis(0x2F) }
 };
 
